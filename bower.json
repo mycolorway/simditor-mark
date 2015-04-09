@@ -1,0 +1,29 @@
+{
+  "name": "simditor-mark",
+  "version": "0.1.0",
+  "homepage": "https://github.com/nil/simditor-mark",
+  "authors": [
+    "lcj <emlcjnil@gmail.com>"
+  ],
+  "description": "The mark extension for Simditor",
+  "main": "lib/simditor-mark.js",
+  "keywords": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "spec",
+    "node_modules",
+    "vendor",
+    "Gemfile",
+    "Gemfile.lock",
+    "Gruntfile.coffee",
+    "package.json",
+    "README.md",
+    "umd.hbs"
+  ],
+  "dependencies": {
+    "jquery": "2.x",
+    "simditor": "2.x"
+  }
+}
+
