@@ -10,34 +10,48 @@ class SimditorMark extends Simditor.Button
 
   command: ->
     range = @editor.selection.getRange()
-    return if range.collapsed
 
-    $mark = $(range.startContainer) if $(range.startContainer).is 'mark'
     if @active
-      $mark = $(range.commonAncestorContainer)
-      $mark = $mark.parent() unless $mark.is 'mark'
-
-    if $mark
       @editor.selection.save()
-      $mark.children().unwrap()
+      @unmark(range)
       @editor.selection.restore()
       @editor.trigger 'valuechanged'
       return
 
-    #if not marked, mark!
-    @editor.selection.save()
-    $contents = $(range.extractContents())
+    return if range.collapsed
 
-    #remove extra mark tag
-    $(range.commonAncestorContainer).find('mark').each (index, ele) ->
-      $(ele).remove() if $(ele).text() is ''
+    @editor.selection.save()
+
+    $start = $(range.startContainer)
+    $end = $(range.endContainer)
+
+    if $start.closest('mark').length
+      range.setStartBefore($start.closest('mark')[0])
+    if $end.closest('mark').length
+      range.setEndAfter($end.closest('mark')[0])
+
+    @mark(range)
+
+    @editor.selection.restore()
+    @editor.trigger 'valuechanged'
+
+  mark: (range = @editor.selection.getRange()) ->
+    $contents = $(range.extractContents())
     $contents.find('mark').each (index, ele) ->
-      $(ele).children().unwrap()
+      $(ele).replaceWith($(ele).html())
 
     $mark = $('<mark>').append $contents
     range.insertNode $mark[0]
 
-    @editor.selection.restore()
-    @editor.trigger 'valuechanged'
+  unmark: (range = @editor.selection.getRange())->
+    if (range.collapsed)
+      $mark = $(range.commonAncestorContainer)
+      $mark = $mark.parent() unless $mark.is 'mark'
+    else if $(range.startContainer).closest('mark').length
+      $mark = $(range.startContainer).closest('mark')
+    else if $(range.endContainer).closest('mark').length
+      $mark = $(range.endContainer).closest('mark')
+
+    $mark.replaceWith($mark.html())
 
 Simditor.Toolbar.addButton SimditorMark
