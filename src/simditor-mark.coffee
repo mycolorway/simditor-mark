@@ -34,6 +34,7 @@ class SimditorMark extends Simditor.Button
 
     @editor.selection.restore()
     @editor.trigger 'valuechanged'
+    @editor.trigger 'selectionchanged' if @editor.util.support.onselectionchange
 
   mark: (range = @editor.selection.getRange()) ->
     $contents = $(range.extractContents())

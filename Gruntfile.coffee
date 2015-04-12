@@ -62,6 +62,7 @@ module.exports = (grunt) ->
           specs: 'spec/<%= name %>-spec.js'
           vendor: [
             'vendor/bower/jquery/dist/jquery.min.js'
+            'vendor/bower/simple-module/lib/module.js'
             'vendor/bower/simple-hotkeys/lib/hotkeys.js'
             'vendor/bower/simditor/lib/simditor.js'
           ]
