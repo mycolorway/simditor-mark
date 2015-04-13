@@ -2,7 +2,7 @@ class SimditorMark extends Simditor.Button
 
   name: 'mark'
 
-  icon: 'magic'
+  icon: 'mark'
 
   htmlTag: 'mark'
 
