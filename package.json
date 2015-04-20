@@ -1,7 +1,7 @@
 {
   "name": "simditor-mark",
   "description": "The mark extension for Simditor.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "homepage": "https://github.com/nil/simditor-mark",
   "author": {
     "name": "lcj",
@@ -21,7 +21,6 @@
     "grunt": "0.x",
     "grunt-contrib-watch": "0.x",
     "grunt-contrib-coffee": "0.x",
-    "grunt-contrib-sass": "0.x",
     "grunt-contrib-jasmine": "0.x",
     "grunt-umd": "2.x"
   },

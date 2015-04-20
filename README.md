@@ -4,10 +4,9 @@ Simditor的一个官方扩展，为工具栏添加一个荧光笔按钮，用于
 
 ## 如何使用
 
-在 Simditor 的基础上额外引入 simditor-mark 的脚本和样式
+在 Simditor 的基础上额外引入 simditor-mark 的脚本
 
 ````
-<link rel="stylesheet" type="text/css" href="/path/to/simditor-mark.css" />
 <script src="/path/to/simditor-mark.js"></script>
 ````
 

@@ -4,7 +4,7 @@ describe 'simditor-mark', ->
   simditor = null
 
 
-generateSimditor = ->
+  generateSimditor = ->
     content = '''
       <p>Simditor 是团队协作工具 <a href="http://tower.im">Tower</a> 使用的富文本编辑器。</p>
       <p>相比传统的编辑器它的特点是：</p>
@@ -21,7 +21,7 @@ generateSimditor = ->
       .appendTo 'body'
     simditor = new Simditor
       textarea: $textarea
-      toolbar: ['mark', 'title', 'bold', 'italic', 'underline']
+      toolbar: [ 'mark', 'title', 'bold', 'italic', 'underline' ]
 
   destroySimditor = ->
     $textarea = $('#editor')
@@ -45,7 +45,6 @@ generateSimditor = ->
   it 'should mark and unmark selected content', ->
     $simditor = $('.simditor')
     $body = $simditor.find('.simditor-body')
-    simditor = $simditor.data 'simditor'
 
     range = document.createRange()
     range.setStart($body.find('p').eq(0)[0], 1)
@@ -68,3 +67,7 @@ generateSimditor = ->
 
 
     expect($body.find('mark')).not.toExist()
+
+  it 'should mark content without extra mark tag', ->
+    $simditor = $('simditor')
+    $body = $simditor.find('body')
