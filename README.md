@@ -1,5 +1,7 @@
 # simditor-mark
 
+[![Circle CI](https://circleci.com/gh/mycolorway/simditor-mark.png?circle-token=3c093222beaf3c0a591da280aef618efb906ec65)](https://circleci.com/gh/mycolorway/simditor-mark)
+
 Simditor的一个官方扩展，为工具栏添加一个荧光笔按钮，用于高亮所选内容。
 
 ## 如何使用
