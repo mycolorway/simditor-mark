@@ -43,7 +43,7 @@
       range.setStart($body.find('p').eq(0)[0], 1);
       range.setEnd($body.find('p').eq(0)[0], 3);
       simditor.focus();
-      simditor.selection.selectRange(range);
+      simditor.selection.range(range);
       expect(range.toString()).toBe('Tower 使用的富文本编辑器。');
       $mark = $simditor.find('a.toolbar-item-mark');
       $mark.trigger('mousedown');
@@ -52,7 +52,7 @@
       range.setStart($body.find('mark')[0], 0);
       range.setEnd($body.find('mark')[0], 2);
       simditor.focus();
-      simditor.selection.selectRange(range);
+      simditor.selection.range(range);
       simditor.trigger('selectionchanged');
       $mark.trigger('mousedown');
       return expect($body.find('mark')).not.toExist();

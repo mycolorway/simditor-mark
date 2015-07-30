@@ -9,7 +9,7 @@ class SimditorMark extends Simditor.Button
   disableTag: 'pre, table'
 
   command: ->
-    range = @editor.selection.getRange()
+    range = @editor.selection.range()
 
     if @active
       @editor.selection.save()
@@ -36,7 +36,7 @@ class SimditorMark extends Simditor.Button
     @editor.trigger 'valuechanged'
     @editor.trigger 'selectionchanged' if @editor.util.support.onselectionchange
 
-  mark: (range = @editor.selection.getRange()) ->
+  mark: (range = @editor.selection.range()) ->
     $contents = $(range.extractContents())
     $contents.find('mark').each (index, ele) ->
       $(ele).replaceWith($(ele).html())
@@ -44,7 +44,7 @@ class SimditorMark extends Simditor.Button
     $mark = $('<mark>').append $contents
     range.insertNode $mark[0]
 
-  unmark: (range = @editor.selection.getRange())->
+  unmark: (range = @editor.selection.range())->
     if (range.collapsed)
       $mark = $(range.commonAncestorContainer)
       $mark = $mark.parent() unless $mark.is 'mark'
